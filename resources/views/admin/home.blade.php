@@ -17,7 +17,16 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <div>
+                        <h3>Banvenuto {{ $current_user->name }}</h3>
+
+                        @if($current_user_info)
+                        <ul>
+                            <li>Il tuo numero di telefono è: {{ $current_user_info->telephone }}</li>
+                            <li>Il tuo indirizzo è: {{ $current_user_info->full_adress}}</li>
+                        </ul>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
