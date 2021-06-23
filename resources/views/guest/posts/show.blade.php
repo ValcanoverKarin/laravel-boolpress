@@ -2,6 +2,13 @@
 
 @section('content')
     <div class="container">
+
+        @if($post_category)
+            <div class="mt-2 mb-2">
+                <strong>Categoria:</strong> {{ $post_category->name }}
+            </div>
+        @endif
+
         <h1>{{ $post->title }}</h1>
 
         <p>{{ $post->content }}</p>
