@@ -19,9 +19,10 @@ Auth::routes(); /*non cancellare, non toccare*/
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/blog', 'PostController@index')->name('blog');
-
 Route::get('/blog/{slug}', 'PostController@show')->name('blog-page');
 
+Route::get('/categories', 'CategoryController@index')->name('categories');
+Route::get('/categories/{slug}', 'CategoryController@show')->name('category-page');
 
 
 Route::prefix('admin')
