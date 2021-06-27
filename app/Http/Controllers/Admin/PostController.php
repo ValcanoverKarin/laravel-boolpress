@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
 use Illuminate\Support\Str;
+use App\Tag;
 
 class PostController extends Controller
 {
@@ -96,6 +97,7 @@ class PostController extends Controller
         $data = [
             'post' => $post,
             'post_category' => $post->category,
+            'post_tags' => $post->tags
         ];
 
         return view('admin.posts.show', $data);
