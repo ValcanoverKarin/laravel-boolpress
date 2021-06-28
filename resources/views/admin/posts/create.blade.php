@@ -21,7 +21,7 @@
 
             <div class="form-group">
                 <label for="title">Titolo</label>
-                <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
+                <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" required>
             </div>
 
             <div class="form-group">
@@ -35,12 +35,24 @@
                     <option value="">Nessuna</option>
 
                     @foreach ($categories as $category)
-                        <option value="
-                            {{ $category->id }}" 
+                        <option value="{{ $category->id }}" 
                             {{ old('category_id') == $category->id ? 'selected' : "" }}> {{ $category->name }} 
                         </option>
                     @endforeach
                 </select>
+            </div>
+
+            <!-- Checkboxes dei tags -->
+            <div class="form-group">
+                <h6>Tags</h6>
+                @foreach( $tags as $tag )
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="tags[]" value="{{$tag->id}}" id="tag-{{$tag->id}}" {{ in_array($tag->id, old('tags', [])) ? 'checked' : '' }}>
+                        <label class="form-check-label" for="tag-{{$tag->id}}">
+                            {{ $tag->name }}
+                        </label>
+                    </div>
+                @endforeach
             </div>
 
             <input type="submit" class="btn btn-success" value="Salva post">
