@@ -15,13 +15,14 @@
             </div>
         @endif
 
+        @if($post_tags->isNotEmpty())
         <div class="mt-2 mb-2">
             <strong>Tags:</strong>
             @foreach($post_tags as $tag)
                 <span>{{ $tag->name }}{{ $loop->last ? '' : ', ' }}</span>
-            @endforeach
-            
+            @endforeach  
         </div>
+        @endif
 
         <p>{{ $post->content }}</p>
 
